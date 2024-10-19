@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.icon {
+    text-decoration: none;
+    color: #fff;
+    font-size: 70px;
+    transition: transform 0.2s, background-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    background-color: #4b4949;
+}
+
+.icon span {
+    display: block;
+    font-size: 20px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+.rotate {
+    transform: rotate(270deg); /* Gira el triángulo para que apunte hacia arriba */
+}
+
