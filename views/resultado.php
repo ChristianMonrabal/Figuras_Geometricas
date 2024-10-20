@@ -30,11 +30,20 @@ $figura = $_SESSION['figura'];
         <h1>Resultados para <?php echo htmlspecialchars($figura); ?></h1>
         
         <div class="results-container">
-            <?php
-            if ($figura == 'Circulo') {
+        <?php
+            if ($figura == 'Triangulo') {
+                echo '<p>Lado 1: ' . htmlspecialchars($_SESSION['lado1_triangulo']) . '</p>';
+                echo '<p>Lado 2: ' . htmlspecialchars($_SESSION['lado2_triangulo']) . '</p>';
+                echo '<p>Lado 3: ' . htmlspecialchars($_SESSION['lado3_triangulo']) . '</p>';
+            } elseif ($figura == 'Rectangulo' || $figura == 'Cuadrado') {
+                echo '<p>Lado: ' . htmlspecialchars($_SESSION['lado1_rectangulo'] ?? $_SESSION['lado1_cuadrado']) . '</p>';
+                if ($figura == 'Rectangulo') {
+                    echo '<p>Altura: ' . htmlspecialchars($_SESSION['lado2_rectangulo']) . '</p>';
+                }
+            } elseif ($figura == 'Circulo') {
                 echo '<p>Radio: ' . htmlspecialchars($_SESSION['radio_circulo']) . '</p>';
             }
-            ?>
+        ?>
             <p>Área: <?php echo htmlspecialchars($resultados['area']); ?></p>
             <p>Perímetro: <?php echo htmlspecialchars($resultados['perimetro']); ?></p>
         </div>
