@@ -9,6 +9,7 @@ if (!isset($_SESSION['resultados']) || !isset($_SESSION['figura'])) {
 
 $resultados = $_SESSION['resultados'];
 $figura = $_SESSION['figura'];
+$tipoFigura = $_SESSION['tipoFigura'];
 ?>
 
 <!DOCTYPE html>
@@ -50,5 +51,7 @@ $figura = $_SESSION['figura'];
     </div>
     
     <a href="../index.php">Volver a seleccionar otra figura</a>
+    <br>
+    <p><?php echo "La figura {$tipoFigura} ha sido destruida."; ?></p>
 </body>
 </html>
