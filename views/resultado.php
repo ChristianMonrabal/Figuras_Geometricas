@@ -32,17 +32,25 @@ $tipoFigura = $_SESSION['tipoFigura'];
         
         <div class="results-container">
         <?php
-            if ($figura == 'Triangulo') {
-                echo '<p>Lado 1: ' . htmlspecialchars($_SESSION['lado1_triangulo']) . '</p>';
-                echo '<p>Lado 2: ' . htmlspecialchars($_SESSION['lado2_triangulo']) . '</p>';
-                echo '<p>Lado 3: ' . htmlspecialchars($_SESSION['lado3_triangulo']) . '</p>';
-            } elseif ($figura == 'Rectangulo') {
-                echo '<p>Lado: ' . htmlspecialchars($_SESSION['lado1_rectangulo']) . '</p>';
-                echo '<p>Altura: ' . htmlspecialchars($_SESSION['lado2_rectangulo']) . '</p>';
-            } elseif ($figura == 'Cuadrado') {
-                echo '<p>Lado: ' . htmlspecialchars($_SESSION['lado1_cuadrado']) . '</p>';
-            } elseif ($figura == 'Circulo') {
-                echo '<p>Radio: ' . htmlspecialchars($_SESSION['radio_circulo']) . '</p>';
+            switch ($figura) {
+                case 'Triangulo':
+                    echo '<p>Lado 1: ' . htmlspecialchars($_SESSION['lado1_triangulo']) . '</p>';
+                    echo '<p>Lado 2: ' . htmlspecialchars($_SESSION['lado2_triangulo']) . '</p>';
+                    echo '<p>Lado 3: ' . htmlspecialchars($_SESSION['lado3_triangulo']) . '</p>';
+                    break;
+
+                case 'Rectangulo':
+                    echo '<p>Lado: ' . htmlspecialchars($_SESSION['lado1_rectangulo']) . '</p>';
+                    echo '<p>Altura: ' . htmlspecialchars($_SESSION['lado2_rectangulo']) . '</p>';
+                    break;
+
+                case 'Cuadrado':
+                    echo '<p>Lado: ' . htmlspecialchars($_SESSION['lado1_cuadrado']) . '</p>';
+                    break;
+
+                case 'Circulo':
+                    echo '<p>Radio: ' . htmlspecialchars($_SESSION['radio_circulo']) . '</p>';
+                    break;
             }
         ?>
             <p>Área: <?php echo htmlspecialchars($resultados['area']); ?></p>
