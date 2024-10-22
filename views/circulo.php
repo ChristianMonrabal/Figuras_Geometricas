@@ -17,7 +17,7 @@ session_start();
         <h1>Cálculo para Círculo</h1>
         <form action="../php/calculos.php" method="POST">
             <label for="radio_circulo">Radio:</label>
-            <input type="number" name="radio_circulo" id="radio_circulo" step="any" onblur="validateInput(this)" value="<?php echo isset($_SESSION['radio_circulo']) ? htmlspecialchars($_SESSION['radio_circulo']) : ''; ?>">
+            <input type="number" name="radio_circulo" id="radio_circulo" step="any" onblur="validateInput(this)" value="<?php echo isset($_SESSION['radio_circulo']) ? htmlspecialchars($_SESSION['radio_circulo']) : ''; ?>" placeholder="Introduce el radio">
             <span id="error-radio_circulo" class="error-message"></span>
             
             <input type="hidden" name="figura" value="Circulo">

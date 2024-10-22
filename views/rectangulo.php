@@ -17,11 +17,11 @@ session_start();
         <h1>Cálculo para Rectángulo</h1>
         <form action="../php/calculos.php" method="POST">
             <label for="lado1_rectangulo">Base:</label>
-            <input type="number" name="lado1_rectangulo" id="lado1_rectangulo" step="any" onblur="validateInput(this)" value="<?php echo isset($_SESSION['lado1_rectangulo']) ? htmlspecialchars($_SESSION['lado1_rectangulo']) : ''; ?>">
+            <input type="number" name="lado1_rectangulo" id="lado1_rectangulo" step="any" onblur="validateInput(this)" value="<?php echo isset($_SESSION['lado1_rectangulo']) ? htmlspecialchars($_SESSION['lado1_rectangulo']) : ''; ?>" placeholder="Introduce un lado del rectangulo">
             <span id="error-lado1_rectangulo" class="error-message"></span>
 
             <label for="lado2_rectangulo">Altura:</label>
-            <input type="number" name="lado2_rectangulo" id="lado2_rectangulo" step="any" onblur="validateInput(this)" value="<?php echo isset($_SESSION['lado2_rectangulo']) ? htmlspecialchars($_SESSION['lado2_rectangulo']) : ''; ?>">
+            <input type="number" name="lado2_rectangulo" id="lado2_rectangulo" step="any" onblur="validateInput(this)" value="<?php echo isset($_SESSION['lado2_rectangulo']) ? htmlspecialchars($_SESSION['lado2_rectangulo']) : ''; ?>" placeholder="Introduce un lado del rectangulo">
             <span id="error-lado2_rectangulo" class="error-message"></span>
 
             <input type="hidden" name="figura" value="Rectangulo">

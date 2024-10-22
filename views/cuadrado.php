@@ -16,7 +16,7 @@ session_start();
     <h1>Cálculo para Cuadrado</h1>
     <form action="../php/calculos.php" method="POST">
         <label for="lado1_cuadrado">Lado:</label>
-        <input type="number" name="lado1_cuadrado" id="lado1_cuadrado" step="any" onblur="validateInput(this)" value="<?php echo isset($_SESSION['lado1_cuadrado']) ? htmlspecialchars($_SESSION['lado1_cuadrado']) : ''; ?>">
+        <input type="number" name="lado1_cuadrado" id="lado1_cuadrado" step="any" onblur="validateInput(this)" value="<?php echo isset($_SESSION['lado1_cuadrado']) ? htmlspecialchars($_SESSION['lado1_cuadrado']) : ''; ?>" placeholder="Introduce el lado">
         <span id="error-lado1_cuadrado" class="error-message"></span>
 
         <input type="hidden" name="figura" value="Cuadrado">
