@@ -5,6 +5,7 @@ require_once '../clases/Triangulo.php';
 require_once '../clases/Rectangulo.php';
 require_once '../clases/Cuadrado.php';
 require_once '../clases/Circulo.php';
+require_once '../clases/Trapecio.php';
 
 $resultados = ['area' => null, 'perimetro' => null];
 
@@ -20,68 +21,82 @@ if (!($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['figura']))) {
             $lado1 = $_POST['lado1_triangulo'];
             $lado2 = $_POST['lado2_triangulo'];
             $lado3 = $_POST['lado3_triangulo'];
-    
+
             if (!is_numeric($lado1) || !is_numeric($lado2) || !is_numeric($lado3) || $lado1 == 0 || $lado2 == 0 || $lado3 == 0) {
                 header('Location: ../views/triangulo.php');
                 exit;
             }
-    
+
             $_SESSION['lado1_triangulo'] = $lado1;
             $_SESSION['lado2_triangulo'] = $lado2;
             $_SESSION['lado3_triangulo'] = $lado3;
-    
+
             $triangulo = new Triangulo($lado1, $lado2, $lado3);
             $resultados['area'] = $triangulo->calcularArea();
             $resultados['perimetro'] = $triangulo->calcularPerimetro();
             break;
-    
+
         case 'Rectangulo':
             $lado1 = $_POST['lado1_rectangulo'];
             $lado2 = $_POST['lado2_rectangulo'];
-    
+
             if (!is_numeric($lado1) || !is_numeric($lado2) || $lado1 == 0 || $lado2 == 0) {
                 header('Location: ../views/rectangulo.php');
                 exit;
             }
-    
+
             $_SESSION['lado1_rectangulo'] = $lado1;
             $_SESSION['lado2_rectangulo'] = $lado2;
-    
+
             $rectangulo = new Rectangulo($lado1, $lado2);
             $resultados['area'] = $rectangulo->calcularArea();
             $resultados['perimetro'] = $rectangulo->calcularPerimetro();
             break;
-    
+
         case 'Cuadrado':
             $lado1 = $_POST['lado1_cuadrado'];
-    
+
             if (!is_numeric($lado1) || $lado1 == 0) {
                 header('Location: ../views/cuadrado.php');
                 exit;
             }
-    
+
             $_SESSION['lado1_cuadrado'] = $lado1;
-    
+
             $cuadrado = new Cuadrado($lado1);
             $resultados['area'] = $cuadrado->calcularArea();
             $resultados['perimetro'] = $cuadrado->calcularPerimetro();
             break;
-    
+
         case 'Circulo':
             $radio = $_POST['radio_circulo'];
-    
+
             if (!is_numeric($radio) || $radio == 0) {
                 header('Location: ../views/circulo.php');
                 exit;
             }
-    
+
             $_SESSION['radio_circulo'] = $radio;
-    
+
             $circulo = new Circulo($radio);
             $resultados['area'] = $circulo->calcularArea();
             $resultados['perimetro'] = $circulo->calcularPerimetro();
             break;
-    
+
+        case 'Trapecio':
+            $base_mayor = $_POST['base_mayor'];
+            $base_menor = $_POST['base_menor'];
+            $altura = $_POST['altura'];
+
+            $_SESSION['base_mayor'] = $base_mayor;
+            $_SESSION['base_menor'] = $base_menor;
+            $_SESSION['altura'] = $altura;
+
+            $trapecio = new Trapecio($base_mayor, $base_menor, $altura);
+            $resultados['area'] = $trapecio->calcularArea();
+            $resultados['perimetro'] = $trapecio->calcularPerimetro();
+            break;
+
         default:
             echo "<h1>Error</h1>";
             echo "<p>Figura no reconocida.</p>";

@@ -4,6 +4,7 @@ session_start();
 if (!isset($_SESSION['resultados']) || !isset($_SESSION['figura'])) {
     echo "<h1>Error</h1>";
     echo "<p>No se han encontrado resultados. Asegúrate de calcular antes de ver los resultados.</p>";
+    echo "<a href='../index.php'>Seleccionar otra figura</a>";
     exit;
 }
 
@@ -40,7 +41,7 @@ $tipoFigura = $_SESSION['tipoFigura'];
                     break;
 
                 case 'Rectangulo':
-                    echo '<p>Lado: ' . htmlspecialchars($_SESSION['lado1_rectangulo']) . '</p>';
+                    echo '<p>Base: ' . htmlspecialchars($_SESSION['lado1_rectangulo']) . '</p>';
                     echo '<p>Altura: ' . htmlspecialchars($_SESSION['lado2_rectangulo']) . '</p>';
                     break;
 
@@ -51,6 +52,12 @@ $tipoFigura = $_SESSION['tipoFigura'];
                 case 'Circulo':
                     echo '<p>Radio: ' . htmlspecialchars($_SESSION['radio_circulo']) . '</p>';
                     break;
+
+                case 'Trapecio':
+                    echo '<p>Base mayor: ' . ($_SESSION['base_mayor']) . '</p>';
+                    echo '<p>Base menor: ' . ($_SESSION['base_menor']) . '</p>';
+                    echo '<p>Altura: ' . ($_SESSION['altura']) . '</p>';
+                    break;
             }
         ?>
             <p>Área: <?php echo htmlspecialchars($resultados['area']); ?></p>
@@ -60,6 +67,5 @@ $tipoFigura = $_SESSION['tipoFigura'];
     
     <a href="../index.php">Volver a seleccionar otra figura</a>
     <br>
-    <p><?php echo "La figura {$tipoFigura} ha sido destruida."; ?></p>
 </body>
 </html>

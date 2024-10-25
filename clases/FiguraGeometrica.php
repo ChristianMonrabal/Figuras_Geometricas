@@ -24,10 +24,6 @@ class FiguraGeometrica {
         $this->lado1 = $lado1;
     }
 
-    public function calcularArea() {
-        return "Este método debe ser sobreescrito en las clases hijas.";
-    }
-
     public function __destruct() {
         echo "<br><br>La figura {$this->tipoFigura} ha sido destruida";
     }

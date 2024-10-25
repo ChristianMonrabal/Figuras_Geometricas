@@ -31,6 +31,10 @@ session_start();
             <i class="fas fa-circle"></i>
             <span>Círculo</span>
         </a>
+        <a href="views/trapecio.php" class="icon">
+            <i class="fas fa-th-large"></i>
+            <span>Trapecio</span>
+        </a>
     </div>
 </body>
 </html>
